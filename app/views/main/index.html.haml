@@ -1,0 +1,23 @@
+%p
+  .menu
+    = link_to 'Home', root_url
+  .categories
+    - @categories.each do |category|
+      |
+      = category.name
+
+    |
+%h1 Courses
+%p
+  .courses
+    - @courses.each do |course|
+      %p
+        .name
+          Name:
+          = course.name
+        .description
+          Description:
+          = course.description
+        .start-date
+          Start date:
+          = course.start_date
