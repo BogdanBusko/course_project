@@ -1,7 +1,9 @@
+%h1
+  = @category.name
 %h1 Courses
 %p
   .courses
-    - @courses.each do |course|
+    - @category.courses.each do |course|
       %p
         .name
           Name:

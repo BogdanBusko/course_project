@@ -7,6 +7,8 @@ end
 
 gem 'haml-rails'
 gem 'mongoid'
+gem 'whenever', require: false
+
 gem 'rails', '~> 5.1.4'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'

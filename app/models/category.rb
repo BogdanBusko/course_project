@@ -1,13 +1,14 @@
 class Category
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   has_many :courses
-
-  field :name, type: String
 
   validates :name, {
     presence: true,
     uniqueness: true,
     length: { minimum: 3, maximum: 50 }
   }
+
+  field :name, type: String
 end
