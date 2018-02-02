@@ -1,9 +1,12 @@
 Faker::Number.between(5, 10).times do
-  Category.create!(name: Faker::Book.genre)
+  category = Faker::Book.genre
+  while Category.where(name: category).count == 0 do
+    Category.create!(name: category)
+  end
 end
 
 Category.each do |category|
-  Faker::Number.between(100, 200).times do
+  Faker::Number.between(20, 40).times do
     started = true
     start_date = Faker::Date.between(Date.today - 366, Date.today + 366)
 
@@ -15,6 +18,28 @@ Category.each do |category|
       start_date: start_date,
       started: started,
       confirmed: Faker::Boolean.boolean(0.5)
+    )
+  end
+end
+
+Course.each do |course|
+  Faker::Number.between(1, 4).times do
+    course.contacts.create!(
+      first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name,
+      phone: Faker::PhoneNumber.cell_phone,
+      facebook: "https://www.facebook.com/#{Faker::Internet.user_name}",
+      email: Faker::Internet.email,
+      skype: Faker::Internet.user_name
+    )
+  end
+
+  Faker::Number.between(1, 3).times do
+    course.teachers.create!(
+      first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name,
+      age: Faker::Number.between(25, 40),
+      information: Faker::Lorem.paragraph
     )
   end
 end

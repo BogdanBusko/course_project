@@ -2,6 +2,9 @@ class Course
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  embeds_many :contacts
+  embeds_many :teachers
+
   belongs_to :category
 
   validates :name, :description, :start_date, presence: true

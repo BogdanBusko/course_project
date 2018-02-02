@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'category/show/:id', to: 'category#show', as: 'category'
+  get 'category/show/:id', to: 'categories#show', as: 'category'
+  get 'course/show/:id', to: 'courses#show', as: 'course'
 
-  root 'main#index'
+  root 'courses#index'
 end

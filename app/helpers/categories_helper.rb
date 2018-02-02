@@ -1,4 +1,4 @@
-module CategoryHelper
+module CategoriesHelper
   def categories
     Category.all
   end
