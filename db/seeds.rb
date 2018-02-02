@@ -3,7 +3,7 @@ Faker::Number.between(5, 10).times do
 end
 
 Category.each do |category|
-  Faker::Number.between(20, 50).times do
+  Faker::Number.between(100, 200).times do
     started = true
     start_date = Faker::Date.between(Date.today - 366, Date.today + 366)
 
@@ -13,7 +13,8 @@ Category.each do |category|
       name: Faker::Educator.course,
       description: Faker::Lorem.paragraph,
       start_date: start_date,
-      started: started
+      started: started,
+      confirmed: Faker::Boolean.boolean(0.5)
     )
   end
 end

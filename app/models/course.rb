@@ -12,6 +12,9 @@ class Course
   field :description, type: String
   field :start_date, type: Date
   field :started, type: Mongoid::Boolean
+  field :confirmed, type: Mongoid::Boolean
+
+  scope :not_started, -> { where(started: false).and(confirmed: true) }
 
   def self.change_status
     all.each do |course|

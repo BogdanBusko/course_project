@@ -8,6 +8,8 @@ end
 gem 'haml-rails'
 gem 'mongoid'
 gem 'whenever', require: false
+gem 'kaminari-mongoid'
+gem 'kaminari'
 
 gem 'rails', '~> 5.1.4'
 gem 'puma', '~> 3.7'

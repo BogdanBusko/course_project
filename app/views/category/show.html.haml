@@ -3,8 +3,11 @@
 %h1 Courses
 %p
   .courses
-    - @category.courses.each do |course|
+    - @courses.each do |course|
       %p
+        .days_to_start
+          Days to start:
+          = days_to_start(course)
         .name
           Name:
           = course.name
@@ -14,3 +17,4 @@
         .start-date
           Start date:
           = course.start_date
+= paginate @courses
