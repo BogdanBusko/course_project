@@ -1,0 +1,42 @@
+%h1
+  Course:
+  = @course.name
+.days_to_start
+  Days to start:
+  = days_to_start(@course)
+.category
+  Category
+  = @course.category.name
+.description
+  Description:
+  = @course.description
+.start-date
+  Start date:
+  = @course.start_date
+%h1 Contacts
+- @course.contacts.each do |contact|
+  %p
+    .name
+      Name:
+      = "#{contact.first_name} #{contact.last_name}"
+    .phone
+      Phone:
+      = contact.phone
+    .email
+      Email:
+      = contact.email
+    .facebook
+      = "Facebook: #{contact.facebook}" if contact.facebook
+    .skype
+      = "Skype: #{contact.facebook}" if contact.skype
+%h1 Teachers
+- @course.teachers.each do |teacher|
+  %p
+    .name
+      Name:
+      = "#{teacher.first_name} #{teacher.last_name}"
+    .age
+      Age:
+      = teacher.age
+    .information
+      = teacher.information

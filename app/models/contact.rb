@@ -3,6 +3,8 @@ class Contact
 
   embedded_in :course
 
+  validates :first_name, :last_name, :phone, :email, presence: true
+
   field :first_name, type: String
   field :last_name, type: String
   field :phone, type: String

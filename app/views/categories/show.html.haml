@@ -4,17 +4,18 @@
 %p
   .courses
     - @courses.each do |course|
-      %p
-        .days_to_start
-          Days to start:
-          = days_to_start(course)
-        .name
-          Name:
-          = course.name
-        .description
-          Description:
-          = course.description
-        .start-date
-          Start date:
-          = course.start_date
+      = link_to course_url(course) do
+        %p
+          .days_to_start
+            Days to start:
+            = days_to_start(course)
+          .name
+            Name:
+            = course.name
+          .description
+            Description:
+            = course.description
+          .start-date
+            Start date:
+            = course.start_date
 = paginate @courses
