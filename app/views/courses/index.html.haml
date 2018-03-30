@@ -15,7 +15,7 @@
             = course.category.name
           .description
             Description:
-            = course.description
+            = course.description.truncate(50)
           .start-date
             Start date:
             = course.start_date

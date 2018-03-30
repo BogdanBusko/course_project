@@ -24,14 +24,17 @@ end
 
 Course.each do |course|
   Faker::Number.between(1, 4).times do
-    course.contacts.create!(
+    contact = course.contacts.new(
       first_name: Faker::Name.first_name,
       last_name: Faker::Name.last_name,
       phone: Faker::PhoneNumber.cell_phone,
-      facebook: "https://www.facebook.com/#{Faker::Internet.user_name}",
-      email: Faker::Internet.email,
-      skype: Faker::Internet.user_name
+      email: Faker::Internet.email
     )
+
+    contact.facebook = "https://www.facebook.com/#{Faker::Internet.user_name}" if Faker::Boolean.boolean(0.5)
+    contact.skype = Faker::Internet.user_name if Faker::Boolean.boolean(0.5)
+
+    contact.save!
   end
 
   Faker::Number.between(1, 3).times do
