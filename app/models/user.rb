@@ -44,4 +44,10 @@ class User
     login = conditions.delete(:login)
     any_of({username: login}, email: login).first
   end
+
+  def self.delete_unconfirmed_user
+    each do |user|
+      user.delete if (user.created_at.strftime('%d-%m-%y') == (Date.today - 7).strftime('%d-%m-%y')) && (user.confirmed_at == nil)
+    end
+  end
 end
