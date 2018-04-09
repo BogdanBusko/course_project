@@ -6,7 +6,7 @@ Faker::Number.between(5, 10).times do
 end
 
 Category.each do |category|
-  Faker::Number.between(20, 40).times do
+  Faker::Number.between(5, 10).times do
     started = true
     start_date = Faker::Date.between(Date.today - 366, Date.today + 366)
 
