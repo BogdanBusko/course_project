@@ -17,10 +17,10 @@
       .start-date
         Start date:
         = course.start_date
-        = paginate @courses
       %div
         = link_to 'Show', course_url(course.id)
         %br/
         = link_to 'Edit', edit_course_url(course.id)
         %br/
         = link_to 'Delete', course_url(course.id), method: :delete
+= paginate @courses
