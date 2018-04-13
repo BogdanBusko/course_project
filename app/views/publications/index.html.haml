@@ -1,0 +1,26 @@
+%h1 My Publications
+.courses
+  - @courses.each do |course|
+    %p
+      .days_to_start
+        Days to start:
+        = days_to_start(course)
+      .name
+        Name:
+        = course.name
+      .category
+        Category
+        = course.category.name
+      .description
+        Description:
+        = course.description.truncate(50)
+      .start-date
+        Start date:
+        = course.start_date
+        = paginate @courses
+      %div
+        = link_to 'Show', course_url(course.id)
+        %br/
+        = link_to 'Edit', edit_course_url(course.id)
+        %br/
+        = link_to 'Delete', course_url(course.id), method: :delete

@@ -1,22 +1,26 @@
 %h1 Courses
 %p
+  - if can? :create, Course
+    .add-new-course
+      = link_to 'Create', new_course_url
   .courses
     - @courses.each do |course|
-      = link_to course_url(course.id) do
-        %p
-          .days_to_start
-            Days to start:
-            = days_to_start(course)
-          .name
-            Name:
-            = course.name
-          .category
-            Category
-            = course.category.name
-          .description
-            Description:
-            = course.description.truncate(50)
-          .start-date
-            Start date:
-            = course.start_date
+      %p
+        .days_to_start
+          Days to start:
+          = days_to_start(course)
+        .name
+          Name:
+          = course.name
+        .category
+          Category
+          = course.category.name
+        .description
+          Description:
+          = course.description.truncate(50)
+        .start-date
+          Start date:
+          = course.start_date
+        %div
+          = link_to 'Read more...', course course.id
 = paginate @courses
