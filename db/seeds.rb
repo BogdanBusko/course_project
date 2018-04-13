@@ -1,3 +1,17 @@
+ user = User.create!(
+  email: 'busko.bogdan@gmail.com',
+  username: 'bogdan',
+  password: '123456',
+  role: :employer
+)
+
+User.create!(
+ email: 'busko1.bogdan@gmail.com',
+ username: 'bogdan1',
+ password: '123456',
+ role: :employer
+)
+
 Faker::Number.between(5, 10).times do
   category = Faker::Book.genre
   while Category.where(name: category).count == 0 do
@@ -17,7 +31,8 @@ Category.each do |category|
       description: Faker::Lorem.paragraph,
       start_date: start_date,
       started: started,
-      confirmed: Faker::Boolean.boolean(0.5)
+      confirmed: Faker::Boolean.boolean(0.5),
+      user_id: user.id
     )
   end
 end
