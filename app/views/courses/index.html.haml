@@ -22,5 +22,5 @@
           Start date:
           = course.start_date
         %div
-          = link_to 'Read more...', course course.id
+          = link_to 'Read more...', course_url(course.id)
 = paginate @courses
