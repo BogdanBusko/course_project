@@ -1,19 +1,24 @@
 class User
   include Mongoid::Document
   include Mongoid::Timestamps
+  include SimpleEnum::Mongoid
 
   attr_accessor :login
+
+  has_many :courses
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+         :recoverable, :rememberable, :trackable, :validatable
 
   ## Database authenticatable
   field :name,               type: String
   field :username,           type: String
   field :email,              type: String, default: ""
   field :encrypted_password, type: String, default: ""
+
+  as_enum :role, admin: 'Admin', user: 'User', employer: 'Employer'
 
   ## Recoverable
   field :reset_password_token,   type: String

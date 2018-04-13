@@ -11,11 +11,15 @@ gem 'whenever', require: false
 gem 'kaminari-mongoid'
 gem 'kaminari'
 gem 'devise'
+gem 'cancancan', '~> 2.0'
+gem 'simple_enum', '~> 2.3.0', require: 'simple_enum/mongoid'
 
 gem 'rails', '~> 5.1.4'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'faker'

@@ -1,6 +1,8 @@
 %p
   .menu
     = link_to 'Home', root_url
+    - if user_signed_in?
+      = link_to 'My Publications', publications_url
   .categories
     - categories.each do |category|
       |
